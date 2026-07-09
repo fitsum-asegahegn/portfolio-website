@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitsum Asegahegn — Statistics Graduate &amp; Data Analyst</title>
+<meta name="description" content="Portfolio of Fitsum Asegahegn — Statistics graduate, data analyst, and researcher. Markowitz portfolio optimization across 9 Ethiopian banks, applied research, and large-scale project leadership.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#152a3d;
+    --ink-soft:#4d5c6b;
+    --paper:#f6f6f2;
+    --paper-raised:#ffffff;
+    --line:#dcdcd3;
+    --gold:#b8863a;
+    --gold-soft:#e9d9b8;
+    --green:#1f4d3c;
+    --rust:#8a3a2c;
+    --mono:'IBM Plex Mono', monospace;
+    --sans:'IBM Plex Sans', sans-serif;
+    --serif:'Fraunces', serif;
+    --maxw:1080px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+
+  ::selection{background:var(--gold-soft); color:var(--ink);}
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,246,242,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 0;
+  }
+  .nav-mark{
+    font-family:var(--mono); font-size:13px; letter-spacing:0.06em;
+    font-weight:600; color:var(--ink);
+    text-decoration:none;
+  }
+  .nav-links{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:0.03em;
+    text-decoration:none; color:var(--ink-soft);
+    text-transform:uppercase;
+    transition:color .15s ease;
+  }
+  .nav-links a:hover{color:var(--gold);}
+  .nav-toggle{display:none;}
+
+  @media (max-width:680px){
+    .nav-links{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:76px 0 60px;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:48px;
+    align-items:center;
+  }
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr; padding:48px 0 40px;}
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--gold);
+    display:flex; align-items:center; gap:10px; margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:''; width:22px; height:1px; background:var(--gold);
+  }
+  h1.name{
+    font-family:var(--serif);
+    font-optical-sizing:auto;
+    font-weight:600;
+    font-size:clamp(2.4rem, 5.2vw, 3.6rem);
+    line-height:1.05;
+    margin:0 0 18px;
+    color:var(--ink);
+  }
+  .hero p.tagline{
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    max-width:46ch;
+    margin:0 0 30px;
+  }
+  .hero .cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:0.03em;
+    text-transform:uppercase;
+    padding:13px 22px;
+    border-radius:2px;
+    text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--ink);
+    transition:background .15s ease, color .15s ease;
+  }
+  .btn.primary{background:var(--ink); color:var(--paper);}
+  .btn.primary:hover{background:var(--gold); border-color:var(--gold);}
+  .btn.ghost{background:transparent; color:var(--ink);}
+  .btn.ghost:hover{background:var(--ink); color:var(--paper);}
+
+  /* ---------- SIGNATURE GRID (9 banks x 7 years) ---------- */
+  .panel-card{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    padding:22px 22px 18px;
+    border-radius:3px;
+  }
+  .panel-card .panel-label{
+    font-family:var(--mono); font-size:11px; color:var(--ink-soft);
+    display:flex; justify-content:space-between; margin-bottom:14px;
+    letter-spacing:0.02em;
+  }
+  .grid-panel{
+    display:grid;
+    grid-template-columns:repeat(7, 1fr);
+    gap:4px;
+  }
+  .grid-panel .cell{
+    aspect-ratio:1/1;
+    background:var(--line);
+    border-radius:1px;
+    opacity:0;
+    animation:cellIn .5s ease forwards;
+  }
+  .grid-panel .cell.hi{background:var(--gold);}
+  .grid-panel .cell.hi2{background:var(--green); opacity:0.85;}
+  @keyframes cellIn{
+    from{opacity:0; transform:scale(.4);}
+    to{opacity:1; transform:scale(1);}
+  }
+  .panel-caption{
+    font-family:var(--mono); font-size:11px; color:var(--ink-soft);
+    margin-top:14px; display:flex; justify-content:space-between;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .grid-panel .cell{animation:none; opacity:1;}
+  }
+
+  /* ---------- SECTION SCAFFOLDING ---------- */
+  section{padding:64px 0;}
+  .section-head{
+    display:flex; align-items:baseline; gap:16px;
+    margin-bottom:34px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:14px;
+  }
+  .section-num{
+    font-family:var(--mono); font-size:12px; color:var(--gold);
+  }
+  h2{
+    font-family:var(--serif); font-weight:600;
+    font-size:clamp(1.5rem, 3vw, 2rem);
+    margin:0;
+  }
+
+  /* ---------- SUMMARY ---------- */
+  .summary-text{
+    font-size:1.12rem;
+    max-width:70ch;
+    color:var(--ink);
+  }
+  .summary-text strong{color:var(--green); font-weight:600;}
+
+  /* ---------- FLAGSHIP PROJECT ---------- */
+  .flagship{
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:4px;
+    padding:44px;
+  }
+  @media (max-width:680px){ .flagship{padding:30px 22px;} }
+  .flagship .section-num{color:var(--gold);}
+  .flagship .section-head{border-bottom-color:rgba(246,246,242,0.18);}
+  .flagship h2{color:var(--paper);}
+  .flagship-grid{
+    display:grid; grid-template-columns:1.3fr 1fr; gap:40px;
+  }
+  @media (max-width:800px){ .flagship-grid{grid-template-columns:1fr;} }
+  .flagship p{color:#c9d0d6;}
+  .flagship ul{padding-left:20px; margin:18px 0; color:#c9d0d6;}
+  .flagship li{margin-bottom:10px;}
+  .stat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:8px;}
+  .stat-box{
+    border:1px solid rgba(246,246,242,0.18);
+    padding:16px 14px;
+    border-radius:3px;
+  }
+  .stat-box .num{
+    font-family:var(--mono); font-size:1.5rem; color:var(--gold);
+    display:block; margin-bottom:4px;
+  }
+  .stat-box .lbl{font-size:11.5px; color:#a6b0b8; letter-spacing:0.02em;}
+  .achievement{
+    margin-top:20px; padding:16px 18px;
+    border-left:2px solid var(--gold);
+    background:rgba(184,134,58,0.08);
+    font-size:0.95rem; color:#e8e2d4;
+  }
+  .achievement b{color:var(--gold);}
+
+  /* ---------- EXPERIENCE (dataset rows) ---------- */
+  .row-table{border-top:1px solid var(--line);}
+  .row-item{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:24px;
+    padding:24px 0;
+    border-bottom:1px solid var(--line);
+    transition:background .15s ease;
+  }
+  .row-item:hover{background:rgba(184,134,58,0.05);}
+  @media (max-width:680px){
+    .row-item{grid-template-columns:1fr; gap:8px;}
+  }
+  .row-date{
+    font-family:var(--mono); font-size:12px; color:var(--gold);
+    letter-spacing:0.02em; white-space:nowrap;
+  }
+  .row-body h3{
+    font-family:var(--sans); font-weight:600; font-size:1.05rem;
+    margin:0 0 3px;
+  }
+  .row-org{
+    font-size:0.9rem; color:var(--ink-soft); margin-bottom:10px;
+    font-style:italic;
+  }
+  .row-body ul{margin:0; padding-left:18px; color:var(--ink-soft); font-size:0.95rem;}
+  .row-body li{margin-bottom:5px;}
+  .row-tag{
+    display:inline-block; margin-top:10px;
+    font-family:var(--mono); font-size:11px; color:var(--green);
+    background:rgba(31,77,60,0.08); padding:4px 9px; border-radius:2px;
+  }
+
+  /* ---------- LEADERSHIP CARDS ---------- */
+  .lead-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  @media (max-width:680px){ .lead-grid{grid-template-columns:1fr;} }
+  .lead-card{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-top:3px solid var(--green);
+    padding:26px 24px;
+    border-radius:3px;
+  }
+  .lead-card h3{margin:0 0 4px; font-size:1.05rem; font-family:var(--sans); font-weight:600;}
+  .lead-card .org{font-size:0.85rem; color:var(--ink-soft); margin-bottom:14px;}
+  .lead-card ul{margin:0; padding-left:18px; color:var(--ink-soft); font-size:0.93rem;}
+  .lead-card li{margin-bottom:6px;}
+
+  /* ---------- EDU + SKILLS ---------- */
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:44px;}
+  @media (max-width:800px){ .two-col{grid-template-columns:1fr;} }
+  .edu-block h3{font-family:var(--serif); font-weight:600; font-size:1.2rem; margin:0 0 3px;}
+  .edu-block .meta{font-family:var(--mono); font-size:12px; color:var(--gold); margin-bottom:16px;}
+  .course-list{display:flex; flex-wrap:wrap; gap:8px; padding:0; list-style:none; margin:0;}
+  .course-list li{
+    font-size:0.82rem; color:var(--ink-soft);
+    border:1px solid var(--line); padding:6px 11px; border-radius:20px;
+  }
+  .skill-group{margin-bottom:20px;}
+  .skill-group h4{
+    font-family:var(--mono); font-size:11.5px; text-transform:uppercase;
+    letter-spacing:0.04em; color:var(--ink-soft); margin:0 0 8px;
+  }
+  .skill-group p{margin:0; font-size:0.96rem;}
+  .lang-row{display:flex; gap:22px; margin-top:6px; flex-wrap:wrap;}
+  .lang-row div{font-size:0.9rem;}
+  .lang-row b{display:block; font-size:0.78rem; color:var(--gold); font-family:var(--mono); font-weight:600;}
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{
+    background:var(--ink); color:var(--paper);
+    padding:60px 0 30px;
+  }
+  footer .section-head{border-bottom-color:rgba(246,246,242,0.18);}
+  footer h2{color:var(--paper);}
+  .contact-grid{display:flex; flex-wrap:wrap; gap:40px; margin-bottom:40px;}
+  .contact-item{font-size:0.95rem;}
+  .contact-item span{
+    display:block; font-family:var(--mono); font-size:11px; color:var(--gold);
+    text-transform:uppercase; margin-bottom:6px; letter-spacing:0.03em;
+  }
+  .contact-item a{text-decoration:none; color:var(--paper); border-bottom:1px solid rgba(246,246,242,0.35);}
+  .contact-item a:hover{border-color:var(--gold); color:var(--gold);}
+  .foot-bottom{
+    border-top:1px solid rgba(246,246,242,0.18);
+    padding-top:20px;
+    font-family:var(--mono); font-size:11.5px; color:#8a94a0;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
+
+  /* ---------- CALCULATOR BUTTON STYLES ---------- */
+  .btn-calc-gold{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:var(--ink);
+  }
+  .btn-calc-gold:hover{
+    background:var(--gold-soft);
+    border-color:var(--gold-soft);
+    color:var(--ink);
+  }
+  .btn-calc-ghost{
+    border-color:var(--gold);
+    color:var(--gold);
+  }
+  .btn-calc-ghost:hover{
+    background:var(--gold);
+    color:var(--ink);
+  }
+  .calc-button-row{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:18px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <nav>
+      <a class="nav-mark" href="#top">FA / STATISTICS</a>
+      <ul class="nav-links">
+        <li><a href="#summary">Profile</a></li>
+        <li><a href="#thesis">Thesis</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero wrap" style="padding-top:76px;">
+    <div>
+      <div class="eyebrow">Addis Ababa University — Dept. of Statistics</div>
+      <h1 class="name">Fitsum Asegahegn</h1>
+      <p class="tagline">Statistics graduate who turns panel data into portfolio decisions — and college-wide events into fully reconciled budgets.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#thesis">View the thesis project</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+        <a class="btn ghost" href="Fitsum-Asegahegn-CV.pdf" download>Download CV</a>
+      </div>
+    </div>
+
+    <div class="panel-card">
+      <div class="panel-label">
+        <span>ROE_PANEL.DATA</span>
+        <span>9 × 7</span>
+      </div>
+      <div class="grid-panel" id="grid-panel"></div>
+      <div class="panel-caption">
+        <span>9 Ethiopian banks</span>
+        <span>FY2017/18 – FY2023/24</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUMMARY -->
+  <section id="summary" class="wrap">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>Profile</h2>
+    </div>
+    <p class="summary-text">
+      A Statistics graduate from Addis Ababa University with hands-on experience in <strong>portfolio optimization modeling</strong>, multi-level leadership, and applied research. Built a Markowitz Mean-Variance portfolio tool for 9 Ethiopian banks using 7 years of panel data. Served as Student Council President for 2,500 students, led a 12-member graduation committee delivering three events for 600 graduating students, and coordinated university-wide programming for 6,200 students as a Student Union member. Comfortable moving between statistical modeling, financial data analysis, and stakeholder-facing project leadership.
+    </p>
+  </section>
+
+  <!-- FLAGSHIP PROJECT -->
+  <section id="thesis" class="wrap">
+    <div class="flagship">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2>Bank Portfolio Optimization</h2>
+      </div>
+      <div class="flagship-grid">
+        <div>
+          <p style="font-family:var(--mono); font-size:12px; letter-spacing:.03em; color:var(--gold); margin-bottom:16px; text-transform:uppercase;">Bachelor's Thesis — AAU Dept. of Statistics, 2025–2026</p>
+          <ul>
+            <li>Built a Markowitz Mean-Variance portfolio optimization model across 9 Ethiopian commercial banks using 7 years of ROE panel data (FY2017/18–FY2023/24).</li>
+            <li>Developed an interactive web-based calculator (HTML/CSS/JavaScript) for automated portfolio allocation.</li>
+            <li>Validated results with bootstrap methods, Monte Carlo simulation, and forex stress testing in Python and R.</li>
+          </ul>
+          <div class="achievement">
+            <b>Key achievement —</b> produced a data-driven investment framework contextualized to Ethiopia's 2025/26 forex liberalization policy.
+          </div>
+
+          <!-- CALCULATOR BUTTONS - NEW -->
+          <div class="calc-button-row">
+            <a href="https://fitsum-asegahegn.github.io/markowitz-calculator/" target="_blank" rel="noopener" class="btn btn-calc-gold">
+              🧮 Try the Live Calculator
+            </a>
+            <a href="https://github.com/fitsum-asegahegn/markowitz-calculator" target="_blank" rel="noopener" class="btn btn-calc-ghost">
+              View Code on GitHub
+            </a>
+          </div>
+
+        </div>
+        <div>
+          <div class="stat-row">
+            <div class="stat-box"><span class="num">9</span><span class="lbl">Banks modeled</span></div>
+            <div class="stat-box"><span class="num">7yr</span><span class="lbl">Panel data span</span></div>
+            <div class="stat-box"><span class="num">3</span><span class="lbl">Validation methods</span></div>
+          </div>
+          <div class="stat-row" style="grid-template-columns:1fr 1fr; margin-top:14px;">
+            <div class="stat-box"><span class="num">R / Py</span><span class="lbl">Statistical stack</span></div>
+            <div class="stat-box"><span class="num">JS</span><span class="lbl">Interactive calculator</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="wrap">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Experience</h2>
+    </div>
+    <div class="row-table">
+
+      <div class="row-item">
+        <div class="row-date">2025 – 2026</div>
+        <div class="row-body">
+          <h3>Graduation Committee President</h3>
+          <div class="row-org">Addis Ababa University</div>
+          <ul>
+            <li>Led a 12-member committee delivering 3 graduation events (Culture Day, Farewell &amp; Game Day, Graduation Package) for 600 graduating students in my college.</li>
+            <li>Coordinated committees, photographers, designers, vendors, and university offices.</li>
+            <li>Supervised financial verification and transaction reconciliation across all events.</li>
+            <li>Secured sponsorships and managed yearbook, ribbon, and binder production end-to-end.</li>
+          </ul>
+          <span class="row-tag">600 students · fully reconciled budgets</span>
+        </div>
+      </div>
+
+      <div class="row-item">
+        <div class="row-date">Jun – Aug 2025</div>
+        <div class="row-body">
+          <h3>Data Collection &amp; Research Intern</h3>
+          <div class="row-org">East African Trading House PLC</div>
+          <ul>
+            <li>Conducted field data collection and quality assurance for retail market research projects.</li>
+            <li>Cleaned, validated, and structured research datasets for statistical analysis and reporting.</li>
+            <li>Assisted in interpreting research findings to support business decision-making.</li>
+          </ul>
+          <span class="row-tag">Certificate of Completion &amp; Letter of Appreciation</span>
+        </div>
+      </div>
+
+      <div class="row-item">
+        <div class="row-date">2024 – 2025</div>
+        <div class="row-body">
+          <h3>Research Assistant</h3>
+          <div class="row-org">Academic Project</div>
+          <ul>
+            <li>Designed and analyzed survey data; performed statistical analysis using SPSS and R.</li>
+            <li>Applied sampling techniques and produced research findings supporting evidence-based decisions.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row-item">
+        <div class="row-date">Since Grade 9</div>
+        <div class="row-body">
+          <h3>Private Tutor — Mathematics &amp; Statistics</h3>
+          <div class="row-org">Independent</div>
+          <ul>
+            <li>Tutored primary and secondary students in Mathematics and Statistics.</li>
+            <li>Developed personalized study plans that improved exam performance.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership" class="wrap">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2>Leadership</h2>
+    </div>
+    <div class="lead-grid">
+
+      <!-- Student Council President -->
+      <div class="lead-card">
+        <h3>Student Council President</h3>
+        <div class="org">Addis Ababa University · Elected 2025</div>
+        <ul>
+          <li>Elected as Student Council President for my college, representing 2,500 students and overseeing a 7-member council.</li>
+          <li>Organized initiatives that improved student engagement and welfare.</li>
+        </ul>
+      </div>
+
+      <!-- Student Union Member - NEW CARD -->
+      <div class="lead-card">
+        <h3>Student Union Member</h3>
+        <div class="org">Addis Ababa University · 2025–2026</div>
+        <ul>
+          <li>Represented my college's 2,500 students in the university-wide Student Union, collaborating with council presidents from other colleges.</li>
+          <li>Coordinated a university-wide event reaching 6,200 students across all AAU campuses.</li>
+        </ul>
+      </div>
+
+  <!-- Discipline Committee Member -->
+      <div class="lead-card">
+        <h3>Discipline Committee Member</h3>
+        <div class="org">AAU Discipline Committee</div>
+        <ul>
+          <li>Served on the university disciplinary committee representing the broader AAU student body.</li>
+          <li>Upheld academic integrity and student conduct standards.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION + SKILLS -->
+  <section id="education" class="wrap">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <h2>Education &amp; Skills</h2>
+    </div>
+    <div class="two-col">
+      <div class="edu-block">
+        <h3>B.Sc. in Statistics</h3>
+        <div class="meta">Addis Ababa University · Graduated June 2026 · CGPA 3.1/4.0</div>
+        <ul class="course-list">
+          <li>Statistical Computing &amp; Regression</li>
+          <li>Categorical Data &amp; Time Series</li>
+          <li>Experimental Design</li>
+          <li>Probability &amp; Statistical Inference</li>
+          <li>Sampling &amp; Multivariate Analysis</li>
+          <li>Stochastic Processes</li>
+        </ul>
+
+        <div class="lang-row" style="margin-top:28px;">
+          <div><b>Amharic</b>Native</div>
+          <div><b>English</b>Professional working proficiency</div>
+          <div><b>Arabic</b>Can understand</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="skill-group">
+          <h4>Statistical Programming</h4>
+          <p>R, Python, SPSS</p>
+        </div>
+        <div class="skill-group">
+          <h4>Quantitative Methods</h4>
+          <p>Portfolio optimization, Monte Carlo simulation, bootstrap methods, time series &amp; multivariate analysis</p>
+        </div>
+        <div class="skill-group">
+          <h4>Data Visualization</h4>
+          <p>R, Excel charts, data dashboards</p>
+        </div>
+        <div class="skill-group">
+          <h4>Tools</h4>
+          <p>Excel, SQL (basic), HTML/CSS/JavaScript</p>
+        </div>
+        <div class="skill-group">
+          <h4>Core Competencies</h4>
+          <p>Statistical &amp; quantitative analysis · project &amp; stakeholder management · team leadership · financial data analysis</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">06</span>
+      <h2>Get in touch</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <span>Email</span>
+        <a href="mailto:fitsumasegahegn@gmail.com">fitsumasegahegn@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <span>Phone</span>
+        <a href="tel:+251946394712">+251 946 394 712</a>
+      </div>
+      <div class="contact-item">
+        <span>Location</span>
+        4 Kilo, Addis Ababa, Ethiopia
+      </div>
+      <div class="contact-item">
+        <span>LinkedIn</span>
+        <a href="https://linkedin.com/in/fitsum-asegahegn" target="_blank" rel="noopener">linkedin.com/in/fitsum-asegahegn</a>
+      </div>
+      <div class="contact-item">
+        <span>CV</span>
+        <a href="Fitsum-Asegahegn-CV.pdf" download>Download PDF</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Fitsum Asegahegn — Statistics Graduate &amp; Data Analyst</span>
+      <span>References available on request</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Build the 9x7 panel-data signature grid (63 cells), staggered fade-in.
+  (function(){
+    const panel = document.getElementById('grid-panel');
+    const cols = 7, rows = 9;
+    const total = cols * rows;
+    // pick a highlighted "optimal weight" diagonal-ish pattern for visual interest
+    const highlight = new Set([4, 12, 19, 27, 34, 41, 48, 55]);
+    const highlight2 = new Set([9, 17, 25, 33]);
+    for(let i=0; i<total; i++){
+      const cell = document.createElement('div');
+      cell.className = 'cell' + (highlight.has(i) ? ' hi' : highlight2.has(i) ? ' hi2' : '');
+      cell.style.animationDelay = (i * 18) + 'ms';
+      panel.appendChild(cell);
+    }
+  })();
+</script>
+
+</body>
+</html>
