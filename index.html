@@ -227,6 +227,82 @@
   }
   .achievement b{color:var(--gold);}
 
+  /* ---------- CALCULATOR BUTTON STYLES ---------- */
+  .btn-calc-gold{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:var(--ink);
+  }
+  .btn-calc-gold:hover{
+    background:var(--gold-soft);
+    border-color:var(--gold-soft);
+    color:var(--ink);
+  }
+  .btn-calc-ghost{
+    border-color:var(--gold);
+    color:var(--gold);
+  }
+  .btn-calc-ghost:hover{
+    background:var(--gold);
+    color:var(--ink);
+  }
+  .calc-button-row{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:18px;
+  }
+
+  /* ---------- APPLIED FINANCE SUITE ---------- */
+  .suite-intro{
+    font-size:1.02rem; color:var(--ink-soft); max-width:66ch; margin:0 0 30px;
+  }
+  .suite-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:22px;}
+  @media (max-width:900px){ .suite-grid{grid-template-columns:1fr;} }
+  .suite-card{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-top:3px solid var(--gold);
+    border-radius:3px;
+    padding:26px 24px;
+    display:flex; flex-direction:column;
+  }
+  .suite-card .suite-tag{
+    font-family:var(--mono); font-size:10.5px; letter-spacing:0.05em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:10px;
+  }
+  .suite-card h3{
+    font-family:var(--sans); font-weight:600; font-size:1.05rem; margin:0 0 10px;
+  }
+  .suite-card p{
+    font-size:0.92rem; color:var(--ink-soft); margin:0 0 18px; flex-grow:1;
+  }
+  .suite-card .suite-links{
+    display:flex; flex-direction:column; gap:8px;
+    font-family:var(--mono); font-size:11.5px;
+  }
+  .suite-card .suite-links a{
+    text-decoration:none; color:var(--ink);
+    border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+    display:inline-flex; align-items:center; gap:6px;
+    width:fit-content;
+  }
+  .suite-card .suite-links a:hover{color:var(--gold); border-color:var(--gold);}
+  .suite-card .suite-links a.is-primary{color:var(--gold); font-weight:600;}
+
+  /* ---------- SUITE FLAGSHIP SUB-CARDS ---------- */
+  .suite-flagship{margin-bottom:22px;}
+  .suite-flagship:last-child{margin-bottom:0;}
+  .suite-flagship .tool-meta{
+    font-family:var(--mono); font-size:12px; letter-spacing:.03em; color:var(--gold);
+    margin-bottom:16px; text-transform:uppercase;
+  }
+  .suite-flagship h3.tool-title{
+    font-family:var(--serif); font-weight:600; color:var(--paper);
+    font-size:clamp(1.3rem, 2.6vw, 1.7rem); margin:0 0 20px;
+  }
+
   /* ---------- EXPERIENCE (dataset rows) ---------- */
   .row-table{border-top:1px solid var(--line);}
   .row-item{
@@ -318,30 +394,31 @@
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
   }
 
-  /* ---------- CALCULATOR BUTTON STYLES ---------- */
-  .btn-calc-gold{
-    background:var(--gold);
-    border-color:var(--gold);
-    color:var(--ink);
+  /* ---------- MOBILE FIXES: stat boxes stack ---------- */
+  @media (max-width: 640px) {
+    .stat-row {
+      grid-template-columns: 1fr !important;
+      gap: 10px;
+    }
+    .stat-box {
+      padding: 12px 14px;
+    }
+    .stat-box .num {
+      font-size: 1.2rem;
+    }
   }
-  .btn-calc-gold:hover{
-    background:var(--gold-soft);
-    border-color:var(--gold-soft);
-    color:var(--ink);
+
+  @media (max-width: 600px) {
+    .flagship-grid {
+      grid-template-columns: 1fr !important;
+      gap: 20px;
+    }
   }
-  .btn-calc-ghost{
-    border-color:var(--gold);
-    color:var(--gold);
-  }
-  .btn-calc-ghost:hover{
-    background:var(--gold);
-    color:var(--ink);
-  }
-  .calc-button-row{
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-    margin-top:18px;
+
+  @media (max-width: 480px) {
+    .stat-box .num {
+      font-size: 1rem;
+    }
   }
 </style>
 </head>
@@ -353,7 +430,7 @@
       <a class="nav-mark" href="#top">FA / STATISTICS</a>
       <ul class="nav-links">
         <li><a href="#summary">Profile</a></li>
-        <li><a href="#thesis">Thesis</a></li>
+        <li><a href="#suite">Suite</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#leadership">Leadership</a></li>
         <li><a href="#education">Education</a></li>
@@ -372,7 +449,7 @@
       <h1 class="name">Fitsum Asegahegn</h1>
       <p class="tagline">Statistics graduate who turns panel data into portfolio decisions — and college-wide events into fully reconciled budgets.</p>
       <div class="cta-row">
-        <a class="btn primary" href="#thesis">View the thesis project</a>
+        <a class="btn primary" href="#suite">Explore the Finance Suite</a>
         <a class="btn ghost" href="#contact">Get in touch</a>
         <a class="btn ghost" href="Fitsum-Asegahegn-CV.pdf" download>Download CV</a>
       </div>
@@ -402,16 +479,24 @@
     </p>
   </section>
 
-  <!-- FLAGSHIP PROJECT -->
-  <section id="thesis" class="wrap">
-    <div class="flagship">
-      <div class="section-head">
-        <span class="section-num">02</span>
-        <h2>Bank Portfolio Optimization</h2>
-      </div>
+  <!-- APPLIED FINANCE SUITE -->
+  <section id="suite" class="wrap">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>Applied Finance Suite</h2>
+    </div>
+    <p class="suite-intro">
+      Three connected tools built from the thesis methodology, each applying the same bootstrap and
+      Monte Carlo machinery to a different layer of Ethiopia's forex-liberalization risk — from bank
+      portfolios, down to individual importers, down to a single SME's own ledger.
+    </p>
+
+    <!-- TOOL 1 OF 3 — BANK PORTFOLIO OPTIMIZATION -->
+    <div class="suite-flagship flagship">
+      <p class="tool-meta">Applied Finance Suite — Tool 1 of 3</p>
+      <h3 class="tool-title">Bank Portfolio Optimization</h3>
       <div class="flagship-grid">
         <div>
-          <p style="font-family:var(--mono); font-size:12px; letter-spacing:.03em; color:var(--gold); margin-bottom:16px; text-transform:uppercase;">Bachelor's Thesis — AAU Dept. of Statistics, 2025–2026</p>
           <ul>
             <li>Built a Markowitz Mean-Variance portfolio optimization model across 9 Ethiopian commercial banks using 7 years of ROE panel data (FY2017/18–FY2023/24).</li>
             <li>Developed an interactive web-based calculator (HTML/CSS/JavaScript) for automated portfolio allocation.</li>
@@ -420,8 +505,6 @@
           <div class="achievement">
             <b>Key achievement —</b> produced a data-driven investment framework contextualized to Ethiopia's 2025/26 forex liberalization policy.
           </div>
-
-          <!-- CALCULATOR BUTTONS - NEW -->
           <div class="calc-button-row">
             <a href="https://fitsum-asegahegn.github.io/markowitz-calculator/" target="_blank" rel="noopener" class="btn btn-calc-gold">
               🧮 Try the Live Calculator
@@ -430,7 +513,6 @@
               View Code on GitHub
             </a>
           </div>
-
         </div>
         <div>
           <div class="stat-row">
@@ -445,6 +527,81 @@
         </div>
       </div>
     </div>
+
+    <!-- TOOL 2 OF 3 — BOOTSTRAP FORECASTER -->
+    <div class="suite-flagship flagship">
+      <p class="tool-meta">Applied Finance Suite — Tool 2 of 3</p>
+      <h3 class="tool-title">Bootstrap Forecaster</h3>
+      <div class="flagship-grid">
+        <div>
+          <ul>
+            <li>Forecasts small-sample business time series (12–24 monthly figures) by detecting a linear trend via an OLS t-test — rather than assuming one exists — and falling back to the historical average when no trend is statistically supported.</li>
+            <li>Re-estimates the trend on every one of 3,000 bootstrap replicates and resamples residuals in blocks of ⌊n/3⌋ observations, preserving month-to-month autocorrelation instead of shuffling it away.</li>
+            <li>Outputs plain-language probability statements (e.g. "78% chance next month exceeds 120,000 Birr") alongside a fan chart and outcome histogram — built for businesses with too little history for ARIMA and too much uncertainty for a single guess.</li>
+          </ul>
+          <div class="achievement">
+            <b>Key achievement —</b> extends the thesis's bootstrap machinery from bank-level portfolio risk down to a single SME's own ledger, running the entire 3,000-replicate simulation client-side with no backend.
+          </div>
+          <div class="calc-button-row">
+            <a href="https://fitsum-asegahegn.github.io/bootstrap-forecaster/" target="_blank" rel="noopener" class="btn btn-calc-gold">
+              📊 Try the Live Forecaster
+            </a>
+            <a href="https://github.com/fitsum-asegahegn/bootstrap-forecaster" target="_blank" rel="noopener" class="btn btn-calc-ghost">
+              View Code on GitHub
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="stat-row">
+            <div class="stat-box"><span class="num">3,000</span><span class="lbl">Bootstrap replicates</span></div>
+            <div class="stat-box"><span class="num">⌊n/3⌋</span><span class="lbl">Block length</span></div>
+            <div class="stat-box"><span class="num">12–24</span><span class="lbl">Recommended input months</span></div>
+          </div>
+          <div class="stat-row" style="grid-template-columns:1fr 1fr; margin-top:14px;">
+            <div class="stat-box"><span class="num">JS</span><span class="lbl">Client-side engine</span></div>
+            <div class="stat-box"><span class="num">%</span><span class="lbl">Plain-language odds</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOOL 3 OF 3 — FOREX DIVERGENCE SIMULATOR -->
+    <div class="suite-flagship flagship">
+      <p class="tool-meta">Applied Finance Suite — Tool 3 of 3</p>
+      <h3 class="tool-title">Forex Divergence Simulator</h3>
+      <div class="flagship-grid">
+        <div>
+          <ul>
+            <li>Simulates the cost exposure of import-dependent businesses to the gap between the official NBE exchange rate and the parallel market rate, projected across a 1–12 month horizon.</li>
+            <li>Runs Monte Carlo simulation of how the spread could evolve under Ethiopia's 2025/26 forex liberalization, translating an abstract rate gap into a Birr-denominated cost distribution instead of a single exchange-rate guess.</li>
+            <li>Includes a stress-test mode and a fan chart of cumulative cost exposure — extending the thesis's forex-shock methodology from bank-level portfolios down to individual importers.</li>
+          </ul>
+          <div class="achievement">
+            <b>Key achievement —</b> turns an abstract macro variable — the official/parallel forex spread — into a concrete probability an importer can actually plan a budget around.
+          </div>
+          <div class="calc-button-row">
+            <a href="https://fitsum-asegahegn.github.io/forex-divergence-simulator/" target="_blank" rel="noopener" class="btn btn-calc-gold">
+              💱 Try the Live Simulator
+            </a>
+            <a href="https://github.com/fitsum-asegahegn/forex-divergence-simulator" target="_blank" rel="noopener" class="btn btn-calc-ghost">
+              View Code on GitHub
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="stat-row">
+            <div class="stat-box"><span class="num">1–12mo</span><span class="lbl">Forecast horizon</span></div>
+            <div class="stat-box"><span class="num">NBE vs parallel</span><span class="lbl">Rate spread modeled</span></div>
+            <div class="stat-box"><span class="num">Monte Carlo</span><span class="lbl">Simulation method</span></div>
+          </div>
+          <div class="stat-row" style="grid-template-columns:1fr 1fr; margin-top:14px;">
+            <div class="stat-box"><span class="num">JS</span><span class="lbl">Client-side engine</span></div>
+            <div class="stat-box"><span class="num">Stress test</span><span class="lbl">Scenario mode</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <!-- EXPERIENCE -->
@@ -497,7 +654,7 @@
       </div>
 
       <div class="row-item">
-        <div class="row-date">Since Grade 9</div>
+        <div class="row-date">Since Grade 9 — Present</div>
         <div class="row-body">
           <h3>Private Tutor — Mathematics &amp; Statistics</h3>
           <div class="row-org">Independent</div>
@@ -519,7 +676,6 @@
     </div>
     <div class="lead-grid">
 
-      <!-- Student Council President -->
       <div class="lead-card">
         <h3>Student Council President</h3>
         <div class="org">Addis Ababa University · Elected 2025</div>
@@ -529,7 +685,6 @@
         </ul>
       </div>
 
-      <!-- Student Union Member - NEW CARD -->
       <div class="lead-card">
         <h3>Student Union Member</h3>
         <div class="org">Addis Ababa University · 2025–2026</div>
@@ -539,7 +694,6 @@
         </ul>
       </div>
 
-  <!-- Discipline Committee Member -->
       <div class="lead-card">
         <h3>Discipline Committee Member</h3>
         <div class="org">AAU Discipline Committee</div>
