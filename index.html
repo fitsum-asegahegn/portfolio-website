@@ -486,14 +486,12 @@
       <h2>Applied Finance Suite</h2>
     </div>
     <p class="suite-intro">
-      Three connected tools built from the thesis methodology, each applying the same bootstrap and
-      Monte Carlo machinery to a different layer of Ethiopia's forex-liberalization risk — from bank
-      portfolios, down to individual importers, down to a single SME's own ledger.
+      Four connected tools built from the thesis methodology, tracing Ethiopia's financial risk from macro policy down to the individual importer: monetary transmission, bank portfolio optimization, SME revenue forecasting, and trade-level currency exposure.
     </p>
 
-    <!-- TOOL 1 OF 3 — BANK PORTFOLIO OPTIMIZATION -->
+    <!-- TOOL 1 OF 4 — BANK PORTFOLIO OPTIMIZATION -->
     <div class="suite-flagship flagship">
-      <p class="tool-meta">Applied Finance Suite — Tool 1 of 3</p>
+      <p class="tool-meta">Applied Finance Suite — Tool 1 of 4</p>
       <h3 class="tool-title">Bank Portfolio Optimization</h3>
       <div class="flagship-grid">
         <div>
@@ -528,9 +526,9 @@
       </div>
     </div>
 
-    <!-- TOOL 2 OF 3 — BOOTSTRAP FORECASTER -->
+    <!-- TOOL 2 OF 4 — BOOTSTRAP FORECASTER -->
     <div class="suite-flagship flagship">
-      <p class="tool-meta">Applied Finance Suite — Tool 2 of 3</p>
+      <p class="tool-meta">Applied Finance Suite — Tool 2 of 4</p>
       <h3 class="tool-title">Bootstrap Forecaster</h3>
       <div class="flagship-grid">
         <div>
@@ -565,9 +563,9 @@
       </div>
     </div>
 
-    <!-- TOOL 3 OF 3 — FOREX DIVERGENCE SIMULATOR -->
+    <!-- TOOL 3 OF 4 — FOREX DIVERGENCE SIMULATOR -->
     <div class="suite-flagship flagship">
-      <p class="tool-meta">Applied Finance Suite — Tool 3 of 3</p>
+      <p class="tool-meta">Applied Finance Suite — Tool 3 of 4</p>
       <h3 class="tool-title">Forex Divergence Simulator</h3>
       <div class="flagship-grid">
         <div>
@@ -597,6 +595,43 @@
           <div class="stat-row" style="grid-template-columns:1fr 1fr; margin-top:14px;">
             <div class="stat-box"><span class="num">JS</span><span class="lbl">Client-side engine</span></div>
             <div class="stat-box"><span class="num">Stress test</span><span class="lbl">Scenario mode</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOOL 4 OF 4 — POLICY RATE DECODER -->
+    <div class="suite-flagship flagship">
+      <p class="tool-meta">Applied Finance Suite — Tool 4 of 4</p>
+      <h3 class="tool-title">Policy Rate Decoder</h3>
+      <div class="flagship-grid">
+        <div>
+          <ul>
+            <li>Visualizes how NBE policy rate changes pass through to commercial lending rates across Ethiopian banks, loan types, and regions.</li>
+            <li>Uses an assumed exponential decay curve (65% eventual pass-through) with 800 block-bootstrap resamples for uncertainty bands.</li>
+            <li>Includes fan chart, bank-level pass-through, loan type donut, and regional comparisons.</li>
+          </ul>
+          <div class="achievement">
+            <b>Key achievement —</b> demonstrates statistical maturity by transparently distinguishing between what's estimated vs. assumed, given data limitations.
+          </div>
+          <div class="calc-button-row">
+            <a href="https://fitsum-asegahegn.github.io/policy-rate-decoder/" target="_blank" rel="noopener" class="btn btn-calc-gold">
+              📊 Try the Live Decoder
+            </a>
+            <a href="https://github.com/fitsum-asegahegn/policy-rate-decoder" target="_blank" rel="noopener" class="btn btn-calc-ghost">
+              View Code on GitHub
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="stat-row">
+            <div class="stat-box"><span class="num">65%</span><span class="lbl">Assumed pass-through</span></div>
+            <div class="stat-box"><span class="num">800</span><span class="lbl">Bootstrap resamples</span></div>
+            <div class="stat-box"><span class="num">13</span><span class="lbl">Quarterly observations</span></div>
+          </div>
+          <div class="stat-row" style="grid-template-columns:1fr 1fr; margin-top:14px;">
+            <div class="stat-box"><span class="num">JS</span><span class="lbl">Client-side engine</span></div>
+            <div class="stat-box"><span class="num">Chart.js</span><span class="lbl">Visualization library</span></div>
           </div>
         </div>
       </div>
